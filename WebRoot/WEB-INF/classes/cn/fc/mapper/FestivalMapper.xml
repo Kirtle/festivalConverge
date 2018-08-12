@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.fc.mapper.FestivalMapper">
+	<select id="findFestival" parameterType="java.lang.Integer" resultType="cn.fc.entity.Festival">
+		SELECT fid,user_id,fname,forigin,fprogress,fcustom,feffect,fliterature,fother,update_time FROM festival where fid=#{fid}
+	</select>
+		 
+</mapper>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.fc.mapper.UserMapper">
+		 
+  	<select id="login"  parameterType="cn.fc.entity.User" resultType="cn.fc.entity.User">
+  		select * from user where username=#{username} and userpwd=#{userpwd}
+  	</select>
+	<insert id="register" parameterType="cn.fc.entity.User">
+		insert into user(username,userpwd) values(#{username},#{userpwd})
+	</insert>
+	<update id="upUserInfo" parameterType="cn.fc.entity.User">
+		update user set  userinfo=#{userinfo} WHERE id=#{id};
+	</update>
+	<select id="findUserInfo"  parameterType="java.lang.Integer" resultType="cn.fc.entity.User">
+  		select * from user where id=#{id}
+  	</select>
+	<select id="findUserByName"  parameterType="cn.fc.entity.User" resultType="cn.fc.entity.User">
+  		select * from user where username=#{username}
+  	</select>	
+  	<update id="addUserIntegral" parameterType="java.lang.Integer">
+		update user set  integral=#{integral}+integral WHERE id=#{id};
+	</update>
+</mapper>
